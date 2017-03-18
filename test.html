@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+    <TITLE>Test Input</TITLE>
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyAavSgCThDTTO9wVNNyfEhyDFqNcXZ20QY",
+            authDomain: "studentzone-47665.firebaseapp.com",
+            databaseURL: "https://studentzone-47665.firebaseio.com",
+            storageBucket: "studentzone-47665.appspot.com",
+            messagingSenderId: "380135386781"
+        };
+
+        firebase.initializeApp(config);
+    </script>
+    var ref = new Firebase("https://studentzone-47665.firebaseio.com");
+
+    <SCRIPT LANGUAGE="JavaScript">
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+
+        function testResults () {
+
+            var email1 = email.value;
+            var password1 = password.value;
+            alert(email1)
+
+
+            firebase.auth().createUserWithEmailAndPassword(email1, password1).catch(function(error) {
+                console.log(error.code);
+                console.log(error.message);
+            });
+
+            alert("Youe account successfully created")
+        }
+    </SCRIPT>
+</HEAD>
+<BODY>
+
+    <INPUT TYPE="text" NAME="email" VALUE="" id="email">
+    <input type="password" name="password" value="" id="password">
+        <INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults()">
+
+</BODY>
+</HTML>

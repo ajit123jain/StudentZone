@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentZone</title>
+    <script type="text/css" src="style.css"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAavSgCThDTTO9wVNNyfEhyDFqNcXZ20QY",
+            authDomain: "studentzone-47665.firebaseapp.com",
+            databaseURL: "https://studentzone-47665.firebaseio.com",
+            storageBucket: "studentzone-47665.appspot.com",
+            messagingSenderId: "380135386781"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        function createUser(){
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
+                console.log(error.code);
+                console.log(error.message);
+
+            });
+            alert("successfully signed up");
+        }
+    </script>
+</head>
+<body>
+   <form action="" method="post">
+    Username:<input type="text" id="email" name="userEmail"></br>
+    Password:<input type="password" name="userPassword" id="password"></br>
+    <input type="submit" value="Sign Up" onclick="createUser()">
+   </form>
+<a href="signin.html">Login here...</a>
+
+
+</body>
+</html>
