@@ -18,6 +18,18 @@
     </script>
     <script>
 
+        document.write ("You will be redirected to our main page in 10 seconds!");
+        function signinUser() {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            console.log(error.code);
+            console.log(error.message);
+        });
+            window.location.assign("https://www.w3schools.com/")
+            alert("hello")
+
+    }
 
     </script>
 </head>
